@@ -1,0 +1,20 @@
+<%- include('./partials/head') %>
+<h1>Kies een stakeholder.</h1>
+<h2>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h2>
+
+<section id="choosable-stakeholders">
+    <form action="/SDG" method="post">
+        <fieldset>
+            <legend>Kies een stakeholder:</legend>
+            <% data.forEach(item => { %>
+            <label>
+                <input type="radio" name="chosenItem" value="<%= item.name %>">
+                <%= item.name %>
+            </label>
+            <% }); %>
+        </fieldset>
+        <button type="submit">Naar de SDG's!</button>
+    </form>
+</section>
+
+<%- include('./partials/foot') %>

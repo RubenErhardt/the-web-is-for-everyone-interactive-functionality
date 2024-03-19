@@ -1,0 +1,15 @@
+<%- include('./partials/head') %>
+<section class="login">
+  <h1>Log nu in met jouw bedrijf.</h1>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="u" placeholder="Enter your username">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="p" placeholder="Enter your password">
+
+    <form action="/stakeholder" method="post">
+    <button type="submit">Log in</button>
+    </form>
+</section>
+
+    <%- include('./partials/foot') %>
