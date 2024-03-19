@@ -1,6 +1,3 @@
-console.log('Script is running');
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
   const progressBar = document.getElementById("progress-bar");
@@ -9,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const chooseCounter = document.getElementById("choose-counter");
   const submitButton = document.getElementById("submit-button");
 
-  let remainingImages = 5;
   let clickedImages = [];
 
   // Functions
@@ -24,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function removeProgress() {
     progressBar.style.width = "0%";
     progressBar.classList.remove('filled');
-    remainingImages = 5;
     clickedImages = [];
     updateChooseCounter();
     resetImageStyles();
@@ -33,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function resetImageStyles() {
     images.forEach(image => {
+      image.classList.remove('selected');
     });
   }
 
@@ -43,19 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isSelected) {
         // Deselect the image
         images[index].classList.remove('selected');
-        remainingImages++;
         clickedImages = clickedImages.filter(clickedIndex => clickedIndex !== index);
-    } else if (remainingImages > 0) {
+    } else {
         // Select the image
         images[index].classList.add('selected');
-        remainingImages--;
         clickedImages.push(index);
     }
 
     updateProgressBar();
     updateChooseCounter();
 
-    if (remainingImages === 0) {
+    if (clickedImages.length >= 3) {
         // Enable submit button to proceed
         submitButton.disabled = false;
     } else {
@@ -66,19 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to update progress bar
   function updateProgressBar() {
-    const progressPercentage = ((5 - remainingImages) / 5) * 100;
+    const progressPercentage = (clickedImages.length / images.length) * 100;
     progressBar.style.width = progressPercentage + "%";
   }
 
-  // Function to update the "KIES X UIT 5" text
-  function updateChooseCounter() {
-    chooseCounter.textContent = `KIES NOG ${remainingImages} SDG'S DIE GOED BIJ JOUW BEDRIJF PASSEN`;
-  }
-  removeProgress();
   // Function to handle submission
   function handleSubmit() {
-    if (remainingImages === 0) {
-      // Perform the desired action when the submit button is clicked and all images are selected
+    if (clickedImages.length >= 3) {
       fetch('/ClickedImagesSDG', {
         method: 'POST',
         headers: {
@@ -90,9 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(data => {
         window.location.href = "vragenlijst";
       })
-    } else {
-      // Display a message or take other action if not all images are selected
-      alert('Please select all 5 images before submitting.');
     }
   }
 

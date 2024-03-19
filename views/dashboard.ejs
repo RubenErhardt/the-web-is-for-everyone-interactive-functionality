@@ -1,0 +1,5 @@
+<%- include('./partials/head') %>
+<% for (const key in scores) { %>
+    <p><strong>Score voor SDG <%= key %>:</strong> <%= scores[key] %></p>
+<% } %>
+<%- include('./partials/foot') %>
