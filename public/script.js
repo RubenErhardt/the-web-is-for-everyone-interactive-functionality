@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+  let clickedImages = [];
   const progressBar = document.getElementById("progress-bar");
   const images = document.querySelectorAll(".clickable-image");
   const removeProgressButton = document.getElementById("remove-progress-button");
   const chooseCounter = document.getElementById("choose-counter");
   const submitButton = document.getElementById("submit-button");
-
-  let clickedImages = [];
 
   // Functions
 

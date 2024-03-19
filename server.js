@@ -46,9 +46,10 @@ app.post('/vragenlijst', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
     const response = await fetchJson(apiUrl);
     const data = response.data || [];
-    req.session.data = data; 
-    res.render('vragenlijst', { data });
+    const clickedImages = req.session.clickedImages || []; // Retrieve clickedImages from session
+    res.render('vragenlijst', { data, clickedImages }); // Pass clickedImages to the template
 });
+
 
 app.get('/vragenlijst', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
