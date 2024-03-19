@@ -21,7 +21,7 @@ h1 {
 }
 
 span {
-  color: green;
+  color: rgb(3, 200, 3);
 }
 
 h2 {
@@ -124,6 +124,67 @@ input {
   background-color: #906591;
 }
 
+/* Achtergrondafbeelding toevoegen */
+#choosable-stakeholders {
+  background-image: url('achtergrondafbeelding.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+}
+
+/* Opvallende kleuren en lettertypen */
+fieldset {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparante achtergrond */
+}
+
+legend {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* Aangepaste hover-effecten */
+label:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+/* Aangepaste radio-buttons */
+input[type="radio"] {
+  display: none; /* Verberg standaard radio-buttons */
+}
+
+input[type="radio"] + label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 10px;
+}
+
+input[type="radio"]:checked + label::before {
+  background-color: #fff;
+}
+
+/* Animaties */
+input[type="radio"] + label::before {
+  transition: background-color 0.3s ease;
+}
+
+
 #progress-bar-container {
   width: 100%;
   background-color: #ffffff;
@@ -140,21 +201,38 @@ input {
   transition: width 0.5s ease;
 }
 
-main button{
+#submit-button{
   margin-top: 20px;
-  width: 50%;
+  width: 20%;
   margin-left: 280px;
   padding: 15px;
-  background-color: #ffffff;
+  background-color: #906591;
   border: none;
   color: rgb(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
-main button:hover {
+#submit-button:hover {
+  background-color: #ffffff;
+}
+
+.back-button{
+  margin-top: 20px;
+  width: 20%;
+  margin-left: 280px;
+  padding: 15px;
   background-color: #906591;
+  border: none;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: orange;
+}
+
+.back-button:hover {
+  background-color: #ffffff;
 }
 
 /* Example styling for the progress bar when it's filled */
@@ -324,3 +402,9 @@ input[type="radio"] {
   }
 }
 
+.important-heading {
+  color: rgb(2, 210, 2);
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  padding: 5px;
+}

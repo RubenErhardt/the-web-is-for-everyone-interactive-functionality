@@ -69,6 +69,7 @@ app.post('/dashboard', async (req, res) => {
             scores[key.split('_')[0]] = parseInt(req.body[key]);
         }
     }
+    console.log(scores);
     
     // Send scores to dashboard.ejs
     res.render('dashboard', { data, scores });
