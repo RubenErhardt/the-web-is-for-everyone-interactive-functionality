@@ -19,7 +19,7 @@
   <div class="container">
     <h1>Aan welke SDG’s wordt een <span>positieve</span> bijdrage geleverd doordat deze mensen bij jouw bedrijf werken? *</h1>
     <h2>Denk bijvoorbeeld aan het feit dat jouw bedrijf loon betaalt, waardoor SDG 1 en 2 worden geholpen. Of kijk naar de arbeidsomstandigheden (bureau, stoel, licht, werktijden) waarmee SDG 3 wordt geholpen.</h2>
-    <h3 class="important-heading">Kies MINIMAAL 3 SDG's voor jouw stakeholder</h3>
+    <h3 class="important-heading">Kies <span>MINIMAAL</span> 3 SDG's voor jouw stakeholder</h3>
 
     <div class="container-sdg">
       <% data.forEach(item => { %>
@@ -27,14 +27,15 @@
       <% }); %>
     </div>
 
+    <div class="button-container">
+      <form action="/stakeholder" method="post">
+        <button class="back-button">Back to stakeholders</button>
+      </form>
     <form action="/vragenlijst" method="post">
         <button id="submit-button">Submit</button>
       </form>
-
-    <form action="/stakeholder" method="post">
-      <button type="submit" class="back-button">Back to stakeholders</button>
-    </form>
   </div>
 </main>
+
 
 <%- include('./partials/foot') %>

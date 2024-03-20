@@ -6,23 +6,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const chooseCounter = document.getElementById("choose-counter");
   const submitButton = document.getElementById("submit-button");
 
-  // Functions
-
-  // Function to fill the progress bar
-  function fillProgressBar() {
-    progressBar.style.width = "100%";
-    progressBar.classList.add('filled');
-  }
-
   // Function to remove the progress
   function removeProgress() {
     progressBar.style.width = "0%";
-    progressBar.classList.remove('filled');
+    progressBar.classList.remove('filled'); // Remove 'filled' class
     clickedImages = [];
     updateChooseCounter();
     resetImageStyles();
   }
 
+  function fillProgressBar() {
+    progressBar.classList.add('filled'); // Add 'filled' class
+  }
 
   function resetImageStyles() {
     images.forEach(image => {
@@ -35,47 +30,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const isSelected = images[index].classList.contains('selected');
 
     if (isSelected) {
-        // Deselect the image
-        images[index].classList.remove('selected');
-        clickedImages = clickedImages.filter(clickedIndex => clickedIndex !== index);
+      // Deselect the image
+      images[index].classList.remove('selected');
+      clickedImages = clickedImages.filter(clickedIndex => clickedIndex !== index);
     } else {
-        // Select the image
-        images[index].classList.add('selected');
-        clickedImages.push(index);
+      // Select the image
+      images[index].classList.add('selected');
+      clickedImages.push(index);
     }
 
     updateProgressBar();
     updateChooseCounter();
-
-    if (clickedImages.length >= 3) {
-        // Enable submit button to proceed
-        submitButton.disabled = false;
-    } else {
-        submitButton.disabled = true;
-    }
-}
-
+    updateSubmitButtonState(); // Update submit button state
+  }
 
   // Function to update progress bar
   function updateProgressBar() {
     const progressPercentage = (clickedImages.length / images.length) * 100;
     progressBar.style.width = progressPercentage + "%";
+
+    if (progressPercentage === 0) {
+      progressBar.classList.remove('filled');
+    } else {
+      fillProgressBar(); // Fill progress bar if there's progress
+    }
+  }
+
+  // Function to update submit button state
+  function updateSubmitButtonState() {
+    submitButton.disabled = clickedImages.length < 3;
   }
 
   // Function to handle submission
-  function handleSubmit() {
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent default form submission
+
     if (clickedImages.length >= 3) {
       fetch('/ClickedImagesSDG', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ clickedImages }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        window.location.href = "vragenlijst";
-      })
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            clickedImages
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.location.href = "vragenlijst";
+        })
     }
   }
 
@@ -89,5 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Add an event listener to the submit button
-  submitButton.addEventListener("click", handleSubmit);
+  submitButton.addEventListener("click", function(event) {
+    handleSubmit(event);
+  });
 });

@@ -21,21 +21,22 @@ h1 {
 }
 
 span {
-  color: rgb(3, 200, 3);
+  color:rgb(3, 148, 3);
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
   text-align: center;
   color: #a1afaf;
   max-width: 700px;
   max-height: 42px;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -84,23 +85,54 @@ header button:hover {
 }
 
 .login-container{
-  background-color:  #343642;
+  background: linear-gradient(to bottom right, #343642, #19191e);
   width: 95%;
   height: 600px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse; 
+  position: relative;
 }
 
 .login-text {
   padding: 35px;
-  width: 300px;
-  height:530px;
+  width: 400px;
+  height: 530px;
   float: right;
-  background-color: rgb(17, 208, 17)2;
-  border-radius: 10px;
+  background-color: #1f1f26; 
+  border-top-right-radius: 10px; /* Rounded border on top right corner */
+  border-bottom-right-radius: 10px; /* Rounded border on bottom right corner */
 }
 
+
+.login-container-text {
+  padding: 35px;
+  width: 80%;
+  margin: 0 auto; /* Centers the container horizontally */
+  text-align: center; /* Centers the text inside the container */
+  margin-bottom: 15px;
+}
+
+.login-form{
+  margin-top: 50px;
+}
+
+
+.login-container-text img{
+  width: 150px;
+  position: absolute; /* Set the positioning to absolute */
+  top: 0; /* Position it at the top */
+  left: -15px; /* Position it at the left */
+  filter: grayscale(100%);
+}
+
+.login-container-text img:hover{
+  filter: grayscale(0%);
+}
 
 h1 {
   font-size: 28px;
@@ -108,39 +140,227 @@ h1 {
   margin-bottom: 20px;
 }
 
-input {
+#username {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
-  background-color: #272932;
-  border: 1px solid #ffffff;
-  color: white;
+  background-color: #43464d;
+  border: 1px solid #43464d;
+  color: #ffffff;
   border-radius: 5px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  margin-bottom: 5px; /* Adjust the margin bottom to increase space */
+}
+
+#password {
+  width: 100%;
+  padding: 10px;
+  background-color: #43464d;
+  border: 1px solid #43464d;
+  color: #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+
+#username:focus {
+  outline: none;
+  border-color:#ff6347;
+}
+
+#password:focus{
+  outline: none;
+  border-color: #ff6347;
 }
 
 .login-text button {
-  width: 100%;
-  padding: 15px;
-  background-color: #ffffff;
+  width: 130px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  padding: 0;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
   border: none;
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 20px; /* Half of the height for a perfect circle */
+  color: #fff;
+  font-size: 12px; /* Adjust as needed */
+  font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  margin-top: 25px;
+  margin-bottom: 80px;
+  margin-left: 40px;
+  transition: all 0.3s ease;
+}
+
+.login-text button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px; /* Large enough to cover the button */
+  height: 300px; /* Large enough to cover the button */
+  background:coral;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.login-text button:hover::before {
+  width: 0;
+  height: 0;
+  transition: all 0.5s ease;
+}
+
+.login-text button span {
+  position: relative;
+  z-index: 1;
 }
 
 .login-text button:hover {
-  background-color: #906591;
+  transform: translateY(-3px) scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Increased shadow */
+}
+
+#choosable-stakeholders {
+  width: 95%;
+  height: auto; /* Adjust as needed */
+  border-radius: 10px;
+  margin-top: 40px;
+  padding: 20px; /* Add padding for better visual appeal */
 }
 
 
+fieldset {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  flex-direction: row; /* Display items next to each other */
+}
 
+legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex; /* Use flexbox for better alignment */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px; /* Increase margin for better spacing */
+  margin-right: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+
+/* Custom radio button style */
+input[type="radio"] {
+  -webkit-appearance: none; /* Remove default styles */
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  border: 2px solid #ccc; /* Border color */
+  border-radius: 50%; /* Circular shape */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: border-color 0.3s ease; /* Smooth transition */
+}
+
+/* Custom radio button style when checked */
+input[type="radio"]:checked {
+  border-color: #ff6347; /* Highlight border color */;
+}
+
+/* Custom checkmark style (optional) */
+input[type="radio"]::before {
+  content: ''; /* Empty content */
+  display: block;
+  width: 10px; /* Size of the checkmark */
+  height: 10px; /* Size of the checkmark */
+  background-color: #ff6347; /* Color of the checkmark */
+  border-radius: 50%; /* Circular shape */
+  position: relative;
+  top: 3px; /* Adjust vertically to center */
+  left: 3.5px; /* Adjust horizontally to center */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Custom checkmark style when checked */
+input[type="radio"]:checked::before {
+  opacity: 1; /* Make the checkmark visible */
+}
+
+
+.stakeholder-btn {
+  width: 130px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  padding: 0;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  border: none;
+  border-radius: 20px; /* Half of the height for a perfect circle */
+  color: #fff;
+  font-size: 12px; /* Adjust as needed */
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  margin-top: 25px;
+  margin-left: 40px;
+  transition: all 0.3s ease;
+}
+
+.stakeholder-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px; /* Large enough to cover the button */
+  height: 300px; /* Large enough to cover the button */
+  background:coral;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.stakeholder-btn:hover::before {
+  width: 0;
+  height: 0;
+  transition: all 0.5s ease;
+}
+
+.stakeholder-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.stakeholder-btn:hover {
+  transform: translateY(-3px) scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Increased shadow */
+}
 
 #progress-bar-container {
   width: 100%;
-  background-color: #ffffff;
   height: 19px;
+  background:#ffffff;
   margin-bottom: 19px;
   border-radius: 19px;
   overflow: hidden;
@@ -148,49 +368,128 @@ input {
 
 #progress-bar {
   height: 100%;
-  background: #AD97C9;
+  background:#ffffff;
   border-radius: 19px;
   transition: width 0.5s ease;
 }
 
-#submit-button{
-  margin-top: 20px;
-  width: 20%;
-  margin-left: 280px;
-  padding: 15px;
-  background-color: #906591;
+#progress-bar.filled{
+  background: #AD97C9;
+}
+
+
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+#submit-button {
+  width: 130px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  padding: 0;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
   border: none;
-  color: rgb(0, 0, 0);
-  border-radius: 10px;
+  border-radius: 20px; /* Half of the height for a perfect circle */
+  color: black;
+  font-size: 12px; /* Adjust as needed */
+  font-weight: bold;
+  position: absolute;
+  left: 200px; /* Align to the right edge of the parent container */
+  top: 25px; /* Adjust the value as needed */
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  margin-top: 25px;
+  margin-bottom: 80px;
+  margin-left: 40px;
+  transition: all 0.3s ease;
+}
+
+#submit-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px; /* Large enough to cover the button */
+  height: 300px; /* Large enough to cover the button */
+  background:#AD97C9;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+#submit-button:hover::before {
+  width: 0;
+  height: 0;
+  transition: all 0.5s ease;
+}
+
+#submit-buttonspan {
+  position: relative;
+  z-index: 1;
 }
 
 #submit-button:hover {
-  background-color: #ffffff;
+  transform: translateY(-3px) scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Increased shadow */
 }
 
-.back-button{
-  margin-top: 20px;
-  width: 20%;
-  margin-left: 280px;
-  padding: 15px;
-  background-color: #906591;
+.back-button {
+  width: 130px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  padding: 0;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
   border: none;
-  color: rgb(0, 0, 0);
-  border-radius: 10px;
+  border-radius: 20px; /* Half of the height for a perfect circle */
+  color: black;
+  font-size: 12px; /* Adjust as needed */
+  font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
-  background-color: orange;
-  transition: background-color 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  margin-top: 25px;
+  margin-bottom: 80px;
+  position: absolute;
+  left: 0; /* Align to the left edge of the parent container */
+  top: 25px; /* Adjust the value as needed */
+  margin-left: 40px;
+  transition: all 0.3s ease;
+}
+
+.back-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px; /* Large enough to cover the button */
+  height: 300px; /* Large enough to cover the button */
+  background:orange;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.back-button:hover::before {
+  width: 0;
+  height: 0;
+  transition: all 0.5s ease;
+}
+
+.back-button span {
+  position: relative;
+  z-index: 1;
 }
 
 .back-button:hover {
-  background-color: #ffffff;
-}
-
-/* Example styling for the progress bar when it's filled */
-#progress-bar.filled {
-  width: 0%;
+  transform: translateY(-3px) scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Increased shadow */
 }
 
 .clickable-image {
@@ -209,6 +508,14 @@ input {
 
 .clickable-image:hover {
   transform: scale(1.05);
+}
+
+.static-image {
+  width: 75px;
+  height: auto;
+  margin: 0.19em;
+  transition: transform 0.3s ease-in-out; 
+  border-radius: 5px;
 }
 
 .container-sdg {
@@ -271,7 +578,6 @@ input[type="radio"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 80px
 }
 
 .social-icons {
@@ -295,12 +601,6 @@ input[type="radio"] {
   font-size: 19px;
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
-
-.social-icons a:hover {
-  color: #AD97C9;
-  text-shadow: 1.9px 1.9px 1.9px rgba(0, 0, 0, 0.5);
-}
-
 
 .footer-bottom {
   margin-top: 19px;
@@ -353,11 +653,4 @@ input[type="radio"] {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.important-heading {
-  color: rgb(2, 210, 2);
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  padding: 5px;
 }
