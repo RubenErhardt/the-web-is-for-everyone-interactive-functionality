@@ -83,14 +83,24 @@ header button:hover {
   text-shadow: 1.9px 1.9px 1.9px rgba(0, 0, 0, 0.5);
 }
 
-.login {
-  background-color: #272932;
-  padding: 35px;
+.login-container{
+  background-color:  #343642;
+  width: 95%;
+  height: 600px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  animation: fadeInFromTop 1s ease;
-  margin-top: 200px;
+  margin: 0 auto;
 }
+
+.login-text {
+  padding: 35px;
+  width: 300px;
+  height:530px;
+  float: right;
+  background-color: rgb(17, 208, 17)2;
+  border-radius: 10px;
+}
+
 
 h1 {
   font-size: 28px;
@@ -109,7 +119,7 @@ input {
   box-sizing: border-box;
 }
 
-.login button {
+.login-text button {
   width: 100%;
   padding: 15px;
   background-color: #ffffff;
@@ -120,69 +130,11 @@ input {
   transition: background-color 0.3s ease-in-out;
 }
 
-.login button:hover {
+.login-text button:hover {
   background-color: #906591;
 }
 
-/* Achtergrondafbeelding toevoegen */
-#choosable-stakeholders {
-  background-image: url('achtergrondafbeelding.jpg');
-  background-size: cover;
-  background-position: center;
-  padding: 50px;
-}
 
-/* Opvallende kleuren en lettertypen */
-fieldset {
-  border: 2px solid #fff;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparante achtergrond */
-}
-
-legend {
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: 18px;
-}
-
-/* Aangepaste hover-effecten */
-label:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-}
-
-/* Aangepaste radio-buttons */
-input[type="radio"] {
-  display: none; /* Verberg standaard radio-buttons */
-}
-
-input[type="radio"] + label::before {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  margin-right: 10px;
-}
-
-input[type="radio"]:checked + label::before {
-  background-color: #fff;
-}
-
-/* Animaties */
-input[type="radio"] + label::before {
-  transition: background-color 0.3s ease;
-}
 
 
 #progress-bar-container {

@@ -1,15 +1,28 @@
 <%- include('./partials/head') %>
-<section class="login">
+<section class="login-container">
+  <div class="login-text">
+  <form action="/stakeholder" method="post">
   <h1>Log nu in met jouw bedrijf.</h1>
     <label for="username">Username</label>
-    <input type="text" id="username" name="u" placeholder="Enter your username">
+    <input type="text" id="username" name="u" placeholder="Enter your username" required>
 
     <label for="password">Password</label>
-    <input type="password" id="password" name="p" placeholder="Enter your password">
-
-    <form action="/stakeholder" method="post">
+    <input type="password" id="password" name="p" placeholder="Enter your password" required>
     <button type="submit">Log in</button>
+    <footer>
+      <div class="footer-main">
+        <ul class="social-icons">
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-bottom">
+        <p>&copy; 2024 Handprint Footprint. All rights reserved.</p>
+      </div>
+    </footer>
     </form>
+  </div>
 </section>
-
-    <%- include('./partials/foot') %>
