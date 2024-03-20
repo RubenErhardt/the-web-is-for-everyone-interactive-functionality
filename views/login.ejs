@@ -3,7 +3,12 @@
   <div class="login-text">
     <form action="/stakeholder" method="post">
       <div class="login-form">
-      <h3>Log nu in met jouw bedrijf.</h3>
+      <h3>Log in met jouw bedrijf.</h3>
+      <div class="container-logo-login">
+        <div id="logo">
+          <i class="fas fa-building"></i>
+        </div>
+      </div>
       <label for="username">Username</label>
       <input type="text" id="username" name="u" placeholder="Enter your username" required>
       <label for="password">Password</label>
@@ -33,7 +38,7 @@
       <img src="https://go-positive.co.uk/resources/Pictures/handprint-for%20social%20preview.png" alt="Handprint/Footprint">
     </div>
   
-    <div class="container-sdg">
+    <div class="container-sdg-login">
       <% data.forEach(item => { %>
         <img src="https://fdnd-agency.directus.app/assets/<%= item.icon %>" class="static-image">
       <% }); %>
