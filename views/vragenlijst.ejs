@@ -1,8 +1,6 @@
 <%- include('./partials/head') %>
   <h1>Kan je per SDG op een schaal van 1/5 aangeven hoe groot de <span>positieve</span> bijdrage is?</h1>
   <h2>Denk hier heel zorgvuldig over na, dit is belangrijk voor de uiteindelijke uitslag.</h2>
-
-  <form action="/dashboard" method="post">
     <% if (data && data.length > 0) { %>
       <% clickedImages.forEach(index => { %>
         <% const currentItem = data[index]; %>
@@ -28,11 +26,11 @@
     <% } else { %>
       <p>No data available</p>
     <% } %>
-
-    <button class="vragenlijst-btn">Submit</button>
+    <form action="/dashboard" method="post">
+  <button class="vragenlijst-btn">Submit</button>
   </form>
 
   <form action="/SDG" method="post">
-    <button class="vragenlijst-btn">Back</button>
+    <button class="back-button">Back</button>
   </form>
 <%- include('./partials/foot') %>

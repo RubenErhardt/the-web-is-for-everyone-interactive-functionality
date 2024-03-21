@@ -3,19 +3,23 @@
 <h3>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h3>
 
 <section id="choosable-stakeholders">
-    <form action="/SDG" method="post">
-        <fieldset>
-            <% data.forEach(item => { %>
-            <label>
-                <input type="radio" name="chosenItem" value="<%= item.name %>">
-                <%= item.name %>
-            </label>
-            <% }); %>
-        </fieldset>
-        <button type="submit" class="stakeholder-btn">Naar de SDG's!</button>
-    </form>
-    <form action="/" method="get">
-        <button class="back-button">Back to Login</button>
-      </form>
+    <img src="https://lofhrm.nl/wp-content/uploads/2020/09/medewerker-en-werknemer465x330.jpg" alt="">
+    <fieldset>
+        <% data.forEach(item => { %>
+        <label>
+            <input type="radio" name="chosenItem" value="<%= item.name %>">
+            <%= item.name %>
+        </label>
+        <% }); %>
+    </fieldset>
+    <div class="btn-stakeholders">
+        <form action="/" method="post">
+            <button class="back-button">&#8592;Back to Login</button>
+        </form>
+        <form action="/SDG" method="post">
+            <button type="submit" class="stakeholder-btn">Naar de SDG's!&#8594;</button>
+        </form>
+    </div>
 </section>
+
 <%- include('./partials/foot') %>

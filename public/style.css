@@ -1,8 +1,24 @@
-/* style.css */
+:root {
+  --primary-color: #ff512f;
+  --secondary-color: #dd2476;
+  --background-gradient: linear-gradient(-45deg, #1a1919, #343642, #2e303d, #21232e);
+  --text-color: white;
+  --span-clr: rgb(3, 148, 3);
+  --text-shadow-color: rgba(0, 0, 0, 0.5);
+  --button-hover-color: #AD97C9;
+  --button-bg-color: coral;
+  --form-bg-color: #1f1f26;
+  --form-border-color: #43464d;
+  --form-focus-color: #ff6347;
+  --radio-border-color: #ccc;
+  --radio-checked-color: #ff6347;
+  --progress-bar-bg-color: #ffffff;
+  --progress-bar-fill-color: #AD97C9;
+  --footer-text-color: #ffffff;
+}
 
 body {
-  overflow: hidden;
-  color: white;
+  color: var(--text-color);
   font-family: "DM Sans", sans-serif;
   margin: 0 auto;
 }
@@ -15,25 +31,23 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -1; 
-  background: linear-gradient(-45deg, #1a1919, #343642, #2e303d, #21232e);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
+  background: var(--background-gradient);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
-
 
 html{
   scroll-behavior: smooth;
@@ -50,7 +64,7 @@ h1 {
 }
 
 span {
-  color:rgb(3, 148, 3);
+  color: var(--span-clr);
 }
 
 h2 {
@@ -112,23 +126,6 @@ h4{
   margin-left: 10px;
 }
 
-header button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-size: inherit;
-  color: white;
-  cursor: pointer;
-  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-  margin-bottom: 10px;
-}
-
-header button:hover {
-  color: #AD97C9;
-  text-shadow: 1.9px 1.9px 1.9px rgba(0, 0, 0, 0.5);
-}
-
 .login-container {
   background: linear-gradient(to bottom right, #343642, #19191e);
   height: 600px;
@@ -147,17 +144,15 @@ header button:hover {
   flex-direction: row;
 }
 
-
 .login-text {
   padding: 35px;
   width: 420px;
   height: 530px;
   float: right;
-  background-color: #1f1f26; 
+  background-color: var(--form-bg-color); 
   border-top-left-radius: 10px; 
   border-bottom-left-radius: 10px; 
 }
-
 
 .login-container-text {
   padding: 35px;
@@ -170,7 +165,6 @@ header button:hover {
 .login-form{
   margin-top: 50px;
 }
-
 
 .login-container-text img{
   width: 150px;
@@ -193,9 +187,9 @@ h1 {
 #username {
   width: 100%;
   padding: 10px;
-  background-color: #43464d;
-  border: 1px solid #43464d;
-  color: #ffffff;
+  background-color: var(--form-bg-color);
+  border: 1px solid var(--form-border-color);
+  color: var(--text-color);
   border-radius: 5px;
   box-sizing: border-box;
   transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -205,30 +199,29 @@ h1 {
 #password {
   width: 100%;
   padding: 10px;
-  background-color: #43464d;
-  border: 1px solid #43464d;
-  color: #ffffff;
+  background-color: var(--form-bg-color);
+  border: 1px solid var(--form-border-color);
+  color: var(--text-color);
   border-radius: 5px;
   box-sizing: border-box;
   transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-
 #username:focus {
   outline: none;
-  border-color:#ff6347;
+  border-color: var(--form-focus-color);
 }
 
 #password:focus{
   outline: none;
-  border-color: #ff6347;
+  border-color: var(--form-focus-color);
 }
 
 .login-btn{
   width: 130px; 
   height: 40px; 
   padding: 0;
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background: linear-gradient(135deg, var(--button-bg-color), var(--secondary-color));
   border: none;
   border-radius: 20px;
   color: #fff;
@@ -240,10 +233,9 @@ h1 {
   position: relative;
   z-index: 0;
   margin: 25px auto 80px;
-  display: block; 
+  display:  block; 
   transition: all 0.3s ease;
 }
-
 
 .login-btn::before {
   content: '';
@@ -252,7 +244,7 @@ h1 {
   left: 50%;
   width: 300px; 
   height: 300px; 
-  background:  coral;
+  background: var(--button-hover-color);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease;
@@ -278,7 +270,6 @@ h1 {
   padding: 20px; 
 }
 
-
 fieldset {
   border: none;
   display: flex;
@@ -303,17 +294,28 @@ label {
   cursor: pointer;
 }
 
+.btn-stakeholders{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 25px; /* Adjust top margin as needed */
+  margin-left: 40px; /* Adjust left margin as needed */
+  margin-bottom: 80px;
+}
+
+
 input[type="radio"] {
   margin-right: 20px;
   vertical-align: middle;
 }
+
 input[type="radio"] {
   -webkit-appearance: none; 
   -moz-appearance: none;
   appearance: none;
   width: 20px; 
   height: 20px;
-  border: 2px solid #ccc;
+  border: 2px solid var(--radio-border-color);
   border-radius: 50%;
   outline: none;
   cursor: pointer;
@@ -321,7 +323,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked {
-  border-color: #ff6347;
+  border-color: var(--radio-checked-color);
 }
 
 input[type="radio"]::before {
@@ -329,7 +331,7 @@ input[type="radio"]::before {
   display: block;
   width: 10px; 
   height: 10px; 
-  background-color: #ff6347; 
+  background-color: var(--radio-checked-color); 
   border-radius: 50%;
   position: relative;
   top: 3px;
@@ -341,28 +343,21 @@ input[type="radio"]::before {
 input[type="radio"]:checked::before {
   opacity: 1;
 }
-
 .stakeholder-btn {
   width: 130px;
   height: 40px;
   padding: 0;
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background: linear-gradient(135deg, var(--button-bg-color), var(--secondary-color));
   border: none;
   border-radius: 20px;
-  color: #fff;
+  color: black;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
   z-index: 0;
-  margin-top: 25px;
-  margin-left: 40px;
   transition: all 0.3s ease;
 }
 
@@ -373,7 +368,7 @@ input[type="radio"]:checked::before {
   left: 50%;
   width: 300px;
   height: 300px;
-  background:coral;
+  background: var(--button-hover-color);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease;
@@ -396,6 +391,7 @@ input[type="radio"]:checked::before {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+
 .SDGs{
   display: flex;
   flex-direction: column;
@@ -416,7 +412,7 @@ input[type="radio"]:checked::before {
   max-width: 1100px;
   width: 100%;
   height: 19px;
-  background:#ffffff;
+  background: var(--progress-bar-bg-color);
   margin-bottom: 40px;
   border-radius: 19px;
   overflow: hidden;
@@ -424,38 +420,37 @@ input[type="radio"]:checked::before {
 
 #progress-bar {
   height: 100%;
-  background:#ffffff;
+  background: var(--progress-bar-bg-color);
   border-radius: 19px;
   transition: width 0.5s ease;
 }
 
 #progress-bar.filled{
-  background: #AD97C9;
+  background: var(--progress-bar-fill-color);
 }
 
 .button-container{
-  display: flex;
-  justify-content: space-around;
-  position: relative;
+display: flex;
+justify-content:space-between;
+	
 }
 
 #submit-button {
   width: 130px;
   height: 40px;
   padding: 0;
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background: linear-gradient(135deg, var(--button-bg-color), var(--secondary-color));
   border: none;
   border-radius: 20px;
   color: black;
   font-size: 12px;
   font-weight: bold;
-  position: absolute;
-  left: 200px;
-  top: 25px;
+  position: relative;
+  left: 20px; /* Adjust left positioning as needed */
+  bottom: 20px;
   text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
-  position: relative;
   z-index: 0;
   margin-top: 25px;
   margin-bottom: 80px;
@@ -470,7 +465,7 @@ input[type="radio"]:checked::before {
   left: 50%;
   width: 300px;
   height: 300px;
-  background:#AD97C9;
+  background: var(--progress-bar-fill-color);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease;
@@ -497,7 +492,7 @@ input[type="radio"]:checked::before {
   width: 130px;
   height: 40px;
   padding: 0;
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background:linear-gradient(to left, #ff512f, #dd2476); 
   border: none;
   border-radius: 20px;
   color: black;
@@ -507,44 +502,38 @@ input[type="radio"]:checked::before {
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  z-index: 0;
-  margin-top: 25px;
-  margin-bottom: 80px;
-  position: absolute;
-  left: 0;
-  top: 25px;
-  margin-left: 40px;
+  right: 10px; /* Adjust right positioning as needed */
+  bottom: 20px;
+  z-index: 1; /* Adjust z-index to make sure it's above other elements */
   transition: all 0.3s ease;
 }
 
 .back-button::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  background:orange;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%; /* Start with full width */
+  height: 100%;
+  background: orange; 
+  border-radius: 20px;
+  transition: width 0.5s ease;
   z-index: -1;
 }
 
 .back-button:hover::before {
-  width: 0;
-  height: 0;
-  transition: all 0.5s ease;
-}
-
-.back-button span {
-  position: relative;
-  z-index: 1;
+  width: 0; /* Reduce width to 0 on hover */
 }
 
 .back-button:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+
+#remove-progress-button{
+  display: none;
 }
 
 .clickable-image {
@@ -571,6 +560,7 @@ input[type="radio"]:checked::before {
   margin:  0.19em;
   transition: transform 0.3s ease-in-out; 
   border-radius: 5px;
+  animation: fadeInFromRight 1s ease-in-out;
 }
 
 .container-sdg {
@@ -618,7 +608,7 @@ input[type="radio"] {
   display: inline-block; 
 }
 
-.vragenlijst-btn{
+.vragenlijst-btn {
   width: 100%;
   padding: 15px;
   background-color: #ffffff;
@@ -626,9 +616,7 @@ input[type="radio"] {
   color: rgb(0, 0, 0);
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
 }
-
 .vragenlijst-btn:hover {
   background-color: #906591;
 }

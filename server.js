@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 app.set('port', process.env.PORT || 8000);
 
+// Render login page
 app.get('/', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
     const response = await fetchJson(apiUrl);
@@ -25,14 +26,13 @@ app.get('/', async (req, res) => {
     res.render('login', { data });
 });
 
+// Handle login form submission
 app.post('/', async (req, res) => {
-    const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
-    const response = await fetchJson(apiUrl);
-    const data = response.data || [];
-    req.session.data = data; 
-    res.render('login', { data });
+    // Handle login form submission logic if needed
+    res.redirect('/'); // Redirect to the login page
 });
 
+// Render stakeholder page
 app.post('/stakeholder', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_stakeholders';
     const response = await fetchJson(apiUrl);
@@ -40,6 +40,7 @@ app.post('/stakeholder', async (req, res) => {
     res.render('stakeholder', { data });
 });
 
+// Render SDG page
 app.post('/SDG', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
     const response = await fetchJson(apiUrl);
@@ -48,21 +49,20 @@ app.post('/SDG', async (req, res) => {
     res.render('SDG', { data, chosenStakeholder: req.body.chosenItem });
 });
 
+// Handle clicked images for SDG
 app.post('/ClickedImagesSDG', (req, res) => {
     const { clickedImages } = req.body;
     req.session.clickedImages = clickedImages; // Store clickedImages in session
     res.json({ success: true });
 });
 
+// Render questionnaire page
 app.post('/vragenlijst', async (req, res) => {
-    const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
-    const response = await fetchJson(apiUrl);
-    const data = response.data || [];
-    const clickedImages = req.session.clickedImages || []; // Retrieve clickedImages from session
-    res.render('vragenlijst', { data, clickedImages }); // Pass clickedImages to the template
+    // Handle questionnaire form submission logic if needed
+    res.redirect('/'); // Redirect to the login page
 });
 
-
+// Handle questionnaire page GET request
 app.get('/vragenlijst', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
     const response = await fetchJson(apiUrl);
@@ -71,6 +71,7 @@ app.get('/vragenlijst', async (req, res) => {
     res.render('vragenlijst', { data, clickedImages });
 });
 
+// Render dashboard page
 app.post('/dashboard', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
     const response = await fetchJson(apiUrl);

@@ -96,4 +96,33 @@ document.addEventListener("DOMContentLoaded", function () {
   submitButton.addEventListener("click", function(event) {
     handleSubmit(event);
   });
+
+  const carousel = document.querySelector('.carousel');
+  const carouselInner = document.querySelector('.carousel-inner');
+  const prevButton = document.querySelector('.carousel-prev');
+  const nextButton = document.querySelector('.carousel-next');
+  const carouselItems = document.querySelectorAll('.carousel-item');
+
+  let currentIndex = 0;
+  const slideWidth = carouselItems[0].offsetWidth;
+  const numItems = carouselItems.length;
+
+  // Set initial position
+  carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+  // Function to move the carousel to the next slide
+  function nextSlide() {
+      currentIndex = (currentIndex + 1) % numItems;
+      carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+
+  // Function to move the carousel to the previous slide
+  function prevSlide() {
+      currentIndex = (currentIndex - 1 + numItems) % numItems;
+      carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+
+  // Event listeners for the previous and next buttons
+  prevButton.addEventListener('click', prevSlide);
+  nextButton.addEventListener('click', nextSlide);
 });
