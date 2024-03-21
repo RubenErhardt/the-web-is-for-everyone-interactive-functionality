@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   removeProgressButton.addEventListener("click", removeProgress);
+  
 
   // Attach image click handlers
   images.forEach((image, index) => {

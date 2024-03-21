@@ -25,6 +25,14 @@ app.get('/', async (req, res) => {
     res.render('login', { data });
 });
 
+app.post('/', async (req, res) => {
+    const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
+    const response = await fetchJson(apiUrl);
+    const data = response.data || [];
+    req.session.data = data; 
+    res.render('login', { data });
+});
+
 app.post('/stakeholder', async (req, res) => {
     const apiUrl = 'https://fdnd-agency.directus.app/items/hf_stakeholders';
     const response = await fetchJson(apiUrl);
