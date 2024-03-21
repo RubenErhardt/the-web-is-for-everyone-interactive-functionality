@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to handle submission
   function handleSubmit(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
     if (clickedImages.length >= 3) {
       fetch('/ClickedImagesSDG', {
