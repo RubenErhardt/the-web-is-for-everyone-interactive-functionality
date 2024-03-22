@@ -166,17 +166,19 @@ h4{
   margin-top: 50px;
 }
 
-.login-container-text img{
+.login-container-text img {
   width: 150px;
   position: absolute; 
   top: 0; 
   left: -15px; 
   filter: grayscale(100%);
+  transition: filter 5s;
 }
 
-.login-container-text img:hover{
-  filter: grayscale(0%);
+.login-container-text img:hover {
+  filter: grayscale(0%) brightness(90%) sepia(100%) hue-rotate(268deg) saturate(180%) contrast(90%);
 }
+
 
 h1 {
   font-size: 28px;
@@ -292,6 +294,16 @@ label {
   margin-bottom: 10px; 
   margin-right: 10px;
   cursor: pointer;
+}
+
+#choosable-stakeholders img{
+  width: 220px;
+}
+
+.choosable-stakeholders-img{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .btn-stakeholders{
@@ -561,6 +573,11 @@ justify-content:space-between;
   transition: transform 0.3s ease-in-out; 
   border-radius: 5px;
   animation: fadeInFromRight 1s ease-in-out;
+}
+
+.social-icons i:hover{
+  transform: scale(1.2);
+  color: var(--button-hover-color);
 }
 
 .container-sdg {
