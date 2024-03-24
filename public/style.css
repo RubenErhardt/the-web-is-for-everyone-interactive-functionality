@@ -124,6 +124,7 @@ header {
 
 h4{
   margin-left: 10px;
+  background-color: red;
 }
 
 .login-container {
@@ -239,6 +240,11 @@ h1 {
   transition: all 0.3s ease;
 }
 
+.login-btn:focus{
+  outline: none;
+  box-shadow: 0 0 5px var(--form-focus-color);
+}
+
 .login-btn::before {
   content: '';
   position: absolute;
@@ -270,6 +276,8 @@ h1 {
   border-radius: 10px;
   margin-top: 40px;
   padding: 20px; 
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 fieldset {
@@ -297,7 +305,7 @@ label {
 }
 
 #choosable-stakeholders img{
-  width: 220px;
+  width: 150px;
 }
 
 .choosable-stakeholders-img{
@@ -306,12 +314,17 @@ label {
   justify-content: space-between;
 }
 
+.text-stakeholders{
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
 .btn-stakeholders{
   display: flex;
   justify-content: space-between;
   position: relative;
   margin-top: 25px; /* Adjust top margin as needed */
-  margin-left: 40px; /* Adjust left margin as needed */
   margin-bottom: 80px;
 }
 
@@ -444,6 +457,7 @@ input[type="radio"]:checked::before {
 .button-container{
 display: flex;
 justify-content:space-between;
+margin-top: 20px;
 	
 }
 
@@ -504,7 +518,7 @@ justify-content:space-between;
   width: 130px;
   height: 40px;
   padding: 0;
-  background:linear-gradient(to left, #ff512f, #dd2476); 
+  background: coral;
   border: none;
   border-radius: 20px;
   color: black;
@@ -513,34 +527,11 @@ justify-content:space-between;
   text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
-  position: relative;
   right: 10px; /* Adjust right positioning as needed */
   bottom: 20px;
   z-index: 1; /* Adjust z-index to make sure it's above other elements */
-  transition: all 0.3s ease;
 }
 
-.back-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Start with full width */
-  height: 100%;
-  background: orange; 
-  border-radius: 20px;
-  transition: width 0.5s ease;
-  z-index: -1;
-}
-
-.back-button:hover::before {
-  width: 0; /* Reduce width to 0 on hover */
-}
-
-.back-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
 
 
 
@@ -637,8 +628,6 @@ input[type="radio"] {
 .vragenlijst-btn:hover {
   background-color: #906591;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /*footer*/
 .footer-main {
