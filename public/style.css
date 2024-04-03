@@ -17,6 +17,10 @@
   --footer-text-color: #ffffff;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--text-color);
   font-family: "DM Sans", sans-serif;
@@ -38,7 +42,14 @@ body::before {
 
 button{
   transition: transform 0.3s ease;
+  text-decoration: none;
 }
+
+button:focus {
+  outline: none; /* Verwijder de standaard focus-outline */
+  box-shadow: none; /* Verwijder eventuele box-shadow */
+}
+
 
 button:hover {
   background-color: var(--span-clr); /* Donkerder groene achtergrondkleur bij hover */
@@ -49,6 +60,11 @@ button:hover {
 button:focus {
   box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Licht schaduweffect bij focus */
 }
+
+button:active {
+  transform: scale(0.95); /* Verklein de knop wanneer ingedrukt */
+}
+
 
 
 @keyframes gradient {
@@ -180,7 +196,7 @@ h4{
   margin-top: 100px;
 }
 
-.login-container-text img {
+.handprint-img{
   width: 150px;
   position: absolute; 
   top: 0; 
@@ -189,7 +205,21 @@ h4{
   transition: filter 5s;
 }
 
-.login-container-text img:hover {
+.handprint-img:hover {
+  filter: grayscale(0%) brightness(90%) sepia(100%) hue-rotate(268deg) saturate(180%) contrast(90%);
+}
+
+.handprint-img-stakeholders{
+  width: 150px;
+  position: absolute; 
+  overflow: hidden;
+  top: -5px;
+  right: 0; 
+  filter: grayscale(100%);
+  transition: filter 5s;
+}
+
+.handprint-img-stakeholders:hover {
   filter: grayscale(0%) brightness(90%) sepia(100%) hue-rotate(268deg) saturate(180%) contrast(90%);
 }
 
@@ -330,9 +360,10 @@ label {
   margin-top: 50px;
 }
 
-.navbar {
+#navbar {
   background: var(--background-gradient);
   padding: 0.5em;
+  height: 55px;
   display: flex;
   justify-content: space-between; /* Plaats de elementen aan de uiteinden */
   align-items: center; /* Zorg ervoor dat de elementen verticaal gecentreerd zijn */
@@ -407,9 +438,6 @@ input[type="radio"]:checked::before {
 }
 
 .stakeholder-btn {
-  position: absolute;
-  bottom: 10px; /* Afstand vanaf de onderkant */
-  right: 10px; /* Afstand vanaf de rechterkant */
   width: 130px;
   height: 40px;
   padding: 0;
@@ -421,6 +449,9 @@ input[type="radio"]:checked::before {
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
+  position: absolute;
+  bottom: 20px; /* Hier kun je de gewenste afstand vanaf de onderkant instellen */
+  right: 20px;
 }
 
 
@@ -437,7 +468,8 @@ input[type="radio"]:checked::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 120px;
+  margin-bottom: 50px;
 }
 
 #progress-bar-container {
@@ -486,6 +518,7 @@ justify-content:space-between;
 }
 
 .back-button {
+  text-decoration: none;
   width: 130px;
   height: 40px;
   padding: 0;
@@ -498,6 +531,11 @@ justify-content:space-between;
   text-transform: uppercase;
   cursor: pointer;
 }
+
+a{
+  color: black;
+}
+
 
 .important-heading{
   margin-top: 60px;

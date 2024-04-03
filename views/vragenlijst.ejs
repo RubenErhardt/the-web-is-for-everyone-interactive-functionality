@@ -1,16 +1,18 @@
 <%- include('./partials/head') %>
-<nav class="navbar">
+
+<nav id="navbar">
   <div class="navbar-item">
-    <form action="/" method="post">
-      <button class="back-button" tabindex="1">Terug naar Inloggen</button>
-    </form>
+      <form action="/" method="post">
+          <button class="back-button" tabindex="1">Terug naar Inloggen</button>
+      </form>
   </div>
   <div class="navbar-brand">
-    <span class="navbar-item" tabindex="2">U bent nu ingelogd als: Bedrijf X</span>
+      <span class="navbar-item" tabindex="2">U bent nu ingelogd als: Bedrijf X</span>
   </div>
   <div class="navbar-menu">
-    <div class="navbar-end">
-    </div>
+      <div class="navbar-end">
+          <img src="/imgs/handprint-for social preview (1).png" alt="Handprint/Footprint" aria-hidden="true" class="handprint-img-stakeholders">
+      </div>
   </div>
 </nav>
 <div class="vragenlijst">
@@ -31,7 +33,7 @@
     <p tabindex="5">No data available</p>
   <% } %>
   <div class="vragenlijst-buttons">
-    <form action="/SDG" method="post">
+    <form action="/stakeholder" method="post">
       <button class="back-button" tabindex="35">Back</button>
     </form>
     <form action="/dashboard" method="post">

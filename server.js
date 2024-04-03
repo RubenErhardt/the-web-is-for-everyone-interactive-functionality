@@ -36,6 +36,10 @@ app.post('/', async (req, res) => {
 app.post('/stakeholder', async (req, res) => {
     const stakeholderApiUrl = 'https://fdnd-agency.directus.app/items/hf_stakeholders';
     const sdgsApiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
+    const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
+    const response = await fetchJson(apiUrl);
+    const data = response.data || [];
+    req.session.data = data; 
 
     // Make API requests concurrently
     const [stakeholdersResponse, sdgsResponse] = await Promise.all([
@@ -47,7 +51,7 @@ app.post('/stakeholder', async (req, res) => {
     const stakeholdersData = stakeholdersResponse.data || [];
     const sdgsData = sdgsResponse.data || [];
 
-    res.render('stakeholder', { stakeholdersData, sdgsData });
+    res.render('stakeholder', { stakeholdersData, sdgsData, data });
 });
 
 

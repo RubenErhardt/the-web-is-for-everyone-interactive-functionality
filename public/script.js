@@ -3,48 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressBar = document.getElementById("progress-bar");
   const images = document.querySelectorAll(".clickable-image");
   const removeProgressButton = document.getElementById("remove-progress-button");
-  const chooseCounter = document.getElementById("choose-counter");
   const submitButton = document.getElementById("submit-button");
+  const sdgPagina = document.querySelector(".SDG-pagina");
+  const naarDeSDGKnop = document.querySelector(".stakeholder-btn");
 
-  // Function to remove the progress
-  function removeProgress() {
-    progressBar.style.width = "0%";
-    progressBar.classList.remove('filled'); // Remove 'filled' class
-    clickedImages = [];
-    updateChooseCounter();
-    resetImageStyles();
-  }
+  
 
-  function fillProgressBar() {
-    progressBar.classList.add('filled'); // Add 'filled' class
-  }
-
-  function resetImageStyles() {
-    images.forEach(image => {
-      image.classList.remove('selected');
-    });
-  }
-
-  // Function to handle image clicks
-  function handleImageClick(index) {
-    const isSelected = images[index].classList.contains('selected');
-
-    if (isSelected) {
-      // Deselect the image
-      images[index].classList.remove('selected');
-      clickedImages = clickedImages.filter(clickedIndex => clickedIndex !== index);
-    } else {
-      // Select the image
-      images[index].classList.add('selected');
-      clickedImages.push(index);
-    }
-
-    updateProgressBar();
-    updateChooseCounter();
-    updateSubmitButtonState(); // Update submit button state
-  }
-
-  // Function to update progress bar
+  // Functie om de voortgangsbalk bij te werken
   function updateProgressBar() {
     const progressPercentage = (clickedImages.length / images.length) * 100;
     progressBar.style.width = progressPercentage + "%";
@@ -52,11 +17,27 @@ document.addEventListener("DOMContentLoaded", function () {
     if (progressPercentage === 0) {
       progressBar.classList.remove('filled');
     } else {
-      fillProgressBar(); // Fill progress bar if there's progress
+      progressBar.classList.add('filled');
     }
   }
 
-  // Function to update submit button state
+  // Functie om met afbeeldingsklikken om te gaan
+  function handleImageClick(index) {
+    const isSelected = images[index].classList.contains('selected');
+
+    if (isSelected) {
+      images[index].classList.remove('selected');
+      clickedImages = clickedImages.filter(clickedIndex => clickedIndex !== index);
+    } else {
+      images[index].classList.add('selected');
+      clickedImages.push(index);
+    }
+
+    updateProgressBar();
+    updateSubmitButtonState();
+  }
+
+  // Functie om de staat van de submit knop bij te werken
   function updateSubmitButtonState() {
     if (clickedImages.length >= 3) {
       submitButton.removeAttribute('disabled');
@@ -65,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Function to handle submission
+  // Functie om het indienen af te handelen
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -88,13 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Add event listeners to clickable images
+  // Voeg event listeners toe aan klikbare afbeeldingen
   images.forEach((image, index) => {
     image.addEventListener("click", function () {
       handleImageClick(index);
     });
     
-    // Add keydown event listener to handle image selection with Enter key
     image.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         handleImageClick(index);
@@ -102,11 +82,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Attach event listener to the remove progress button
-  removeProgressButton.addEventListener("click", removeProgress);
+  // Voeg event listener toe aan de knop om de voortgang te verwijderen
+  removeProgressButton.addEventListener("click", function() {
+    clickedImages = [];
+    images.forEach(image => {
+      image.classList.remove('selected');
+    });
+    updateProgressBar();
+    updateSubmitButtonState();
+  });
 
-  // Add event listener to the submit button
+  // Voeg event listener toe aan de submit knop
   submitButton.addEventListener("click", function(event) {
     handleSubmit(event);
   });
+
+  // Functie voor soepel scrollen naar het tweede deel van de HTML
+  function scrollToSDGPagina() {
+    sdgPagina.scrollIntoView({ behavior: "smooth" });
+    document.body.style.overflow = "auto"; // Herstel het scrollen
+    naarDeSDGKnop.style.display = "none"; // Verberg de knop
+  }
+
+  naarDeSDGKnop.addEventListener("click", scrollToSDGPagina);
+
+  // Voorkom scrollen totdat er op de knop wordt geklikt
+  document.body.style.overflow = "hidden";
 });
