@@ -57,41 +57,55 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to update submit button state
-// Function to handle submission
-function handleSubmit(event) {
-  event.preventDefault();
-
-  if (clickedImages.length >= 3) {
-    fetch('/ClickedImagesSDG', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          clickedImages
-        }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        window.location.href = "vragenlijst";
-      })
-  } else {
-    alert("Selecteer minstens drie afbeeldingen.");
+  function updateSubmitButtonState() {
+    if (clickedImages.length >= 3) {
+      submitButton.removeAttribute('disabled');
+    } else {
+      submitButton.setAttribute('disabled', 'disabled');
+    }
   }
-}
 
+  // Function to handle submission
+  function handleSubmit(event) {
+    event.preventDefault();
 
-  removeProgressButton.addEventListener("click", removeProgress);
-  
+    if (clickedImages.length >= 3) {
+      fetch('/ClickedImagesSDG', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            clickedImages
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.location.href = "vragenlijst";
+        })
+    } else {
+      alert("Selecteer minstens drie afbeeldingen.");
+    }
+  }
 
-  // Attach image click handlers
+  // Add event listeners to clickable images
   images.forEach((image, index) => {
     image.addEventListener("click", function () {
       handleImageClick(index);
     });
+    
+    // Add keydown event listener to handle image selection with Enter key
+    image.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        handleImageClick(index);
+      }
+    });
   });
 
-  // Add an event listener to the submit button
+  // Attach event listener to the remove progress button
+  removeProgressButton.addEventListener("click", removeProgress);
+
+  // Add event listener to the submit button
   submitButton.addEventListener("click", function(event) {
     handleSubmit(event);
   });

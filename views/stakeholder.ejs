@@ -3,29 +3,28 @@
 <nav class="navbar">
     <div class="navbar-item">
         <form action="/" method="post">
-            <button class="back-button">Terug naar Inloggen</button>
+            <button class="back-button" tabindex="1">Terug naar Inloggen</button>
         </form>
     </div>
     <div class="navbar-brand">
-        <span class="navbar-item">U bent nu ingelogd als: Bedrijf X</span>
+        <span class="navbar-item" tabindex="2">U bent nu ingelogd als: Bedrijf X</span>
     </div>
     <div class="navbar-menu">
         <div class="navbar-end">
         </div>
     </div>
-
 </nav>
 
 <div class="text-stakeholders">
-    <h1>Kies een van deze stakeholders waar jij wilt gaan checken wat hun <span>HANDPRINT/FOOTPRINT</span> is. 1/4</h1>
-    <h2>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h2>
+    <h1 tabindex="3">Kies een van deze stakeholders waar jij wilt gaan checken wat hun <span>HANDPRINT/FOOTPRINT</span> is. 1/4</h1>
+    <h2 tabindex="4">Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h2>
 </div>
 
 <form action="/SDG" method="post" class="form-container">
-    <section id="choosable-stakeholders">
+    <section id="choosable-stakeholders" tabindex="5">
         <fieldset required>
-            <% stakeholdersData.forEach(item => { %>
-                <label>
+            <% stakeholdersData.forEach((item, index) => { %>
+                <label tabindex="<%= 6 + index %>">
                     <input type="radio" name="chosenItem" value="<%= item.name %>">
                     <%= item.name %>
                 </label>
@@ -35,12 +34,14 @@
         <div class="container-stakeholders">
             <% sdgsData.forEach((item, index) => { %>
                 <% const currentItem = sdgsData[index]; %>
-                <img src="https://fdnd-agency.directus.app/assets/<%= item.icon %>" class="static-image" alt="SDG <%= index + 1 %> <%= currentItem.description %>" tabindex="<%= index + 7 %>">
+                <img src="https://fdnd-agency.directus.app/assets/<%= item.icon %>" class="static-image" alt="SDG <%= index + 1 %> <%= currentItem.description %>" tabindex="<%= 15 + index %>">
             <% }); %>   
         </div>   
     </section>
 
-    <button type="submit" class="stakeholder-btn">Naar de SDG's!&#8594;</button>
+    <button type="submit" class="stakeholder-btn" tabindex="25">Naar de SDG's!&#8594;</button>
 </form>
 
 <%- include('./partials/foot') %>
+
+
