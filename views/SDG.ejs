@@ -1,26 +1,30 @@
 <%- include('./partials/head') %>
+
+<nav class="navbar">
+  <div class="navbar-item">
+      <form action="/" method="post">
+          <button class="back-button">Terug naar Inloggen</button>
+      </form>
+  </div>
+  <div class="navbar-brand">
+      <span class="navbar-item">U bent nu ingelogd als: Bedrijf X</span>
+  </div>
+  <div class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+  </div>
+</nav>
 <div class="SDG-pagina">
 <header>
-  <div class="container-logo">
-    <div id="logo">
-      <i class="fas fa-building"></i>
-    </div>
-    <% if (chosenStakeholder) { %>
-      <h4> <%= chosenStakeholder %></h4>
-    <% } %>
-  </div>
-  <button id="remove-progress-button"></button>
 </header>
 
-<div id="progress-bar-container">
-  <div id="progress-bar"></div>
-</div>
 
 <main>
   <div class="SDGs">
   <div class="container">
     <h1>Aan welke SDG’s wordt een <span>positieve</span> bijdrage geleverd doordat deze mensen bij jouw bedrijf werken? *</h1>
     <h2>Denk bijvoorbeeld aan het feit dat jouw bedrijf loon betaalt, waardoor SDG 1 en 2 worden geholpen. Of kijk naar de arbeidsomstandigheden (bureau, stoel, licht, werktijden) waarmee SDG 3 wordt geholpen.</h2>
+  
     <h3 class="important-heading">Kies <span>MINIMAAL</span> 3 SDG's voor jouw stakeholder</h3>
 
     <div class="container-sdg">
@@ -29,16 +33,21 @@
       <% }); %>
     </div>
 
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+
     <div class="button-container">
       <form action="/stakeholder" method="post">
         <button class="back-button">Back to stakeholders</button>
       </form>
     <form action="/vragenlijst" method="post">
-        <button id="submit-button">Submit</button>
+        <button id="submit-button">Kies deze sdg's</button>
       </form>
+      <button id="remove-progress-button"></button>
   </div>
 </div>
-</main>
 </div>
+</main>
 
 <%- include('./partials/foot') %>

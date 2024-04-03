@@ -129,12 +129,12 @@ h4{
 
 .login-container {
   background: linear-gradient(to bottom right, #343642, #19191e);
-  height: 600px;
+  height: 800px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: auto;
   width: 90%;
-  max-width: 1100px;
+  max-width: 1600px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -148,7 +148,7 @@ h4{
 .login-text {
   padding: 35px;
   width: 420px;
-  height: 530px;
+  height: 730px;
   float: right;
   background-color: var(--form-bg-color); 
   border-top-left-radius: 10px; 
@@ -164,7 +164,7 @@ h4{
 }
 
 .login-form{
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .login-container-text img {
@@ -271,13 +271,17 @@ h1 {
 }
 
 #choosable-stakeholders {
+  position: relative; /* Add this line to make sure the button's absolute positioning is relative to this container */
   width: 95%;
-  height: auto;
-  border-radius: 10px;
-  margin-top: 40px;
-  padding: 20px; 
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 40px auto 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-stakeholders{
+  max-width: 500px;
 }
 
 fieldset {
@@ -285,9 +289,8 @@ fieldset {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
   position: relative;
-  flex-direction: row; 
+  flex-direction: column; 
 }
 
 legend {
@@ -308,25 +311,33 @@ label {
   width: 150px;
 }
 
-.choosable-stakeholders-img{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .text-stakeholders{
   max-width: 1100px;
   margin: 0 auto;
   margin-top: 100px;
 }
 
-.btn-stakeholders{
+.navbar {
+  background: var(--background-gradient);
+  padding: 0.5em;
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-top: 25px; /* Adjust top margin as needed */
-  margin-bottom: 80px;
+  justify-content: space-between; /* Plaats de elementen aan de uiteinden */
+  align-items: center; /* Zorg ervoor dat de elementen verticaal gecentreerd zijn */
 }
+
+.navbar-brand {
+  font-size: 1.25rem;
+}
+
+.navbar-menu {
+  margin-right: auto; /* Verplaats de .navbar-menu naar links */
+}
+
+.navbar-item {
+  margin-right: 1rem;
+  color: var(--footer-text-color);
+}
+
 
 
 input[type="radio"] {
@@ -334,6 +345,7 @@ input[type="radio"] {
   vertical-align: middle;
 }
 
+/* Simplified radio button styling */
 input[type="radio"] {
   -webkit-appearance: none; 
   -moz-appearance: none;
@@ -344,13 +356,16 @@ input[type="radio"] {
   border-radius: 50%;
   outline: none;
   cursor: pointer;
+  position: relative; /* Add position relative to parent */
   transition: border-color 0.3s ease;
 }
 
+/* Changed checked radio button border color */
 input[type="radio"]:checked {
   border-color: var(--radio-checked-color);
 }
 
+/* Simplified radio button checked styling */
 input[type="radio"]::before {
   content: '';
   display: block;
@@ -358,62 +373,37 @@ input[type="radio"]::before {
   height: 10px; 
   background-color: var(--radio-checked-color); 
   border-radius: 50%;
-  position: relative;
-  top: 3px;
-  left: 3.5px;
+  position: absolute; /* Change position to absolute */
+  top: 50%; /* Adjust to vertically center */
+  left: 50%; /* Adjust to horizontally center */
+  transform: translate(-50%, -50%); /* Adjust to properly center */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
+/* Changed radio button checked opacity */
 input[type="radio"]:checked::before {
   opacity: 1;
 }
+
+
 .stakeholder-btn {
   width: 130px;
   height: 40px;
   padding: 0;
-  background: linear-gradient(135deg, var(--button-bg-color), var(--secondary-color));
+  background: var(--footer-text-color);
   border: none;
   border-radius: 20px;
   color: black;
   font-size: 12px;
+  align-items: center;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  z-index: 0;
-  transition: all 0.3s ease;
-}
-
-.stakeholder-btn::before {
-  content: '';
   position: absolute;
-  top: 50%;
+  top: 85%;
   left: 50%;
-  width: 300px;
-  height: 300px;
-  background: var(--button-hover-color);
-  border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.5s ease;
-  z-index: -1;
-}
-
-.stakeholder-btn:hover::before {
-  width: 0;
-  height: 0;
-  transition: all 0.5s ease;
-}
-
-.stakeholder-btn span {
-  position: relative;
-  z-index: 1;
-}
-
-.stakeholder-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -431,6 +421,7 @@ input[type="radio"]:checked::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 #progress-bar-container {
@@ -457,68 +448,27 @@ input[type="radio"]:checked::before {
 .button-container{
 display: flex;
 justify-content:space-between;
-margin-top: 20px;
-	
 }
 
 #submit-button {
   width: 130px;
   height: 40px;
   padding: 0;
-  background: linear-gradient(135deg, var(--button-bg-color), var(--secondary-color));
+  background: var(--progress-bar-bg-color);
   border: none;
   border-radius: 20px;
   color: black;
   font-size: 12px;
   font-weight: bold;
-  position: relative;
-  left: 20px; /* Adjust left positioning as needed */
-  bottom: 20px;
   text-transform: uppercase;
   cursor: pointer;
-  overflow: hidden;
-  z-index: 0;
-  margin-top: 25px;
-  margin-bottom: 80px;
-  margin-left: 40px;
-  transition: all 0.3s ease;
-}
-
-#submit-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  background: var(--progress-bar-fill-color);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.5s ease;
-  z-index: -1;
-}
-
-#submit-button:hover::before {
-  width: 0;
-  height: 0;
-  transition: all 0.5s ease;
-}
-
-#submit-buttonspan {
-  position: relative;
-  z-index: 1;
-}
-
-#submit-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .back-button {
   width: 130px;
   height: 40px;
   padding: 0;
-  background: coral;
+  background: var(--progress-bar-bg-color);
   border: none;
   border-radius: 20px;
   color: black;
@@ -532,8 +482,9 @@ margin-top: 20px;
   z-index: 1; /* Adjust z-index to make sure it's above other elements */
 }
 
-
-
+.important-heading{
+  margin-top: 70px;
+}
 
 #remove-progress-button{
   display: none;
@@ -543,27 +494,21 @@ margin-top: 20px;
   width: 104.5px;
   height: auto;
   cursor: pointer;
-  margin: 0.19em;
+  margin: 0.2em;
   transition: transform 0.3s ease-in-out; 
   border-radius: 5px;
-  filter: grayscale(0%); 
 }
 
 .clickable-image.selected{
-  filter: grayscale(100%); 
-}
-
-.clickable-image:hover {
-  transform: scale(1.05);
+  border: 2px solid green; /* Kies een contrasterende kleur */
+  opacity: 0.5;
 }
 
 .static-image {
-  width: 75px;
+  width: 75px !important;
   height: auto;
   margin:  0.19em;
-  transition: transform 0.3s ease-in-out; 
   border-radius: 5px;
-  animation: fadeInFromRight 1s ease-in-out;
 }
 
 .social-icons i:hover{
@@ -575,6 +520,7 @@ margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .container-sdg-login {
@@ -631,6 +577,7 @@ input[type="radio"] {
 
 /*footer*/
 .footer-main {
+  margin-top: 250px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

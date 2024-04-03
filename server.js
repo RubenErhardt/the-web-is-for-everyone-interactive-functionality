@@ -34,11 +34,22 @@ app.post('/', async (req, res) => {
 
 // Render stakeholder page
 app.post('/stakeholder', async (req, res) => {
-    const apiUrl = 'https://fdnd-agency.directus.app/items/hf_stakeholders';
-    const response = await fetchJson(apiUrl);
-    const data = response.data || [];
-    res.render('stakeholder', { data });
+    const stakeholderApiUrl = 'https://fdnd-agency.directus.app/items/hf_stakeholders';
+    const sdgsApiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
+
+    // Make API requests concurrently
+    const [stakeholdersResponse, sdgsResponse] = await Promise.all([
+        fetchJson(stakeholderApiUrl),
+        fetchJson(sdgsApiUrl)
+    ]);
+
+    // Extract data from responses
+    const stakeholdersData = stakeholdersResponse.data || [];
+    const sdgsData = sdgsResponse.data || [];
+
+    res.render('stakeholder', { stakeholdersData, sdgsData });
 });
+
 
 // Render SDG page
 app.post('/SDG', async (req, res) => {

@@ -1,34 +1,43 @@
 <%- include('./partials/head') %>
+<nav class="navbar">
+    <div class="navbar-item">
+        <form action="/" method="post">
+            <button class="back-button">Terug naar Inloggen</button>
+        </form>
+    </div>
+    <div class="navbar-brand">
+        <span class="navbar-item">U bent nu ingelogd als: Bedrijf X</span>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-end">
+        </div>
+    </div>
+</nav>
+
 <div class="text-stakeholders">
-<h1>Kies een stakeholder.</h1>
-<h3>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h3>
+<h1>Kies een van deze stakeholders waar jij wilt gaan checken wat hun <span>HANDPRINT/FOOTPRINT</span> is.</h1>
+<h2>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h2>
 </div>
 
 <section id="choosable-stakeholders">
-    <div class="choosable-stakeholders-img">
-    <img src="https://img.freepik.com/premium-vector/een-cartoon-van-een-fabriek-waar-rook-uit-komt_627567-3265.jpg" alt="">
-    <img src="https://lofhrm.nl/wp-content/uploads/2020/09/medewerker-en-werknemer465x330.jpg" alt="">
-    <img src="https://i.pngimg.me/thumb/f/720/5991339497881600.jpg" alt="">
-    <img src="https://img.freepik.com/premium-vector/groen-toerisme-natuurreizen-kleurrijke-omgeving-zomerlandschap-ontwerp-cartoon-stijl-illustratie-geisoleerd-op-wit-wandelen-man-met-rugzak-buiten-reizen-rivier-naaldbos_169479-1360.jpg" alt="">
-    <img src="https://don16obqbay2c.cloudfront.net/wp-content/uploads/Supliers-01-01-01-1458746333.jpg" alt="">
-    <img src="https://s3-eu-central-1.amazonaws.com/cartoons-s3/styles/product_detail_image/s3/70636005-00B9-449B-826D-9786EA1035C9.jpeg?itok=vedrHYOK" alt="">
-</div>
     <fieldset>
-        <% data.forEach(item => { %>
+        <% stakeholdersData.forEach(item => { %>
         <label>
             <input type="radio" name="chosenItem" value="<%= item.name %>">
             <%= item.name %>
         </label>
         <% }); %>
     </fieldset>
-    <div class="btn-stakeholders">
-        <form action="/" method="post">
-            <button class="back-button">&#8592;Back to Login</button>
-        </form>
-        <form action="/SDG" method="post">
-            <button type="submit" class="stakeholder-btn">Naar de SDG's!&#8594;</button>
-        </form>
-    </div>
+
+    <div class="container-stakeholders">
+        <% sdgsData.forEach((item, index) => { %>
+          <% const currentItem = sdgsData[index]; %>
+          <img src="https://fdnd-agency.directus.app/assets/<%= item.icon %>" class="static-image" alt="SDG <%= index + 1 %> <%= currentItem.description %>" tabindex="<%= index + 7 %>">
+        <% }); %>   
+      </div>   
 </section>
 
+<form action="/SDG" method="post">
+    <button type="submit" class="stakeholder-btn">Naar de SDG's!&#8594;</button>
+</form>
 <%- include('./partials/foot') %>
