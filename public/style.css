@@ -21,13 +21,12 @@ body {
   color: var(--text-color);
   font-family: "DM Sans", sans-serif;
   margin: 0 auto;
+  background: var(--background-gradient);
 }
 
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1; 
@@ -36,6 +35,21 @@ body::before {
   animation: gradient 15s ease infinite;
   height: 100vh;
 }
+
+button{
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--span-clr); /* Donkerder groene achtergrondkleur bij hover */
+  transform: scale(1.05);
+}
+
+/* Focus-effect */
+button:focus {
+  box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Licht schaduweffect bij focus */
+}
+
 
 @keyframes gradient {
   0% {
@@ -383,8 +397,19 @@ input[type="radio"]:checked::before {
   opacity: 1;
 }
 
+.form-container {
+  position: relative;
+  max-width: 1000px;
+  align-items: center;
+  display: flex;
+  justify-content: center; /* Om het formulier in het midden van de pagina te plaatsen */
+  margin: 0 auto; /* Om de container in het midden van de pagina te plaatsen */
+}
 
 .stakeholder-btn {
+  position: absolute;
+  bottom: 10px; /* Afstand vanaf de onderkant */
+  right: 10px; /* Afstand vanaf de rechterkant */
   width: 130px;
   height: 40px;
   padding: 0;
@@ -393,14 +418,9 @@ input[type="radio"]:checked::before {
   border-radius: 20px;
   color: black;
   font-size: 12px;
-  align-items: center;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 
@@ -458,7 +478,13 @@ justify-content:space-between;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
+  transition: transform 0.3s ease;
   cursor: pointer;
+}
+
+#submit-button:hover{
+  background-color: var(--span-clr);
+  transform: scale(1.05);
 }
 
 .back-button {
