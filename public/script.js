@@ -57,30 +57,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to update submit button state
-  function updateSubmitButtonState() {
-    submitButton.disabled = clickedImages.length < 3;
-  }
+// Function to handle submission
+function handleSubmit(event) {
+  event.preventDefault();
 
-  // Function to handle submission
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    if (clickedImages.length >= 3) {
-      fetch('/ClickedImagesSDG', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            clickedImages
-          }),
-        })
-        .then(response => response.json())
-        .then(data => {
-          window.location.href = "vragenlijst";
-        })
-    }
+  if (clickedImages.length >= 3) {
+    fetch('/ClickedImagesSDG', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          clickedImages
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        window.location.href = "vragenlijst";
+      })
+  } else {
+    alert("Selecteer minstens drie afbeeldingen.");
   }
+}
+
 
   removeProgressButton.addEventListener("click", removeProgress);
   

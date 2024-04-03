@@ -1,4 +1,5 @@
 <%- include('./partials/head') %>
+
 <nav class="navbar">
     <div class="navbar-item">
         <form action="/" method="post">
@@ -12,32 +13,34 @@
         <div class="navbar-end">
         </div>
     </div>
+
 </nav>
 
 <div class="text-stakeholders">
-<h1>Kies een van deze stakeholders waar jij wilt gaan checken wat hun <span>HANDPRINT/FOOTPRINT</span> is.</h1>
-<h2>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h2>
+    <h1>Kies een van deze stakeholders waar jij wilt gaan checken wat hun <span>HANDPRINT/FOOTPRINT</span> is. 1/4</h1>
+    <h2>Vergeet niet dat je altijd kunt teruggaan om een andere stakeholder aan te klikken.</h2>
 </div>
 
-<section id="choosable-stakeholders">
-    <fieldset>
-        <% stakeholdersData.forEach(item => { %>
-        <label>
-            <input type="radio" name="chosenItem" value="<%= item.name %>">
-            <%= item.name %>
-        </label>
-        <% }); %>
-    </fieldset>
-
-    <div class="container-stakeholders">
-        <% sdgsData.forEach((item, index) => { %>
-          <% const currentItem = sdgsData[index]; %>
-          <img src="https://fdnd-agency.directus.app/assets/<%= item.icon %>" class="static-image" alt="SDG <%= index + 1 %> <%= currentItem.description %>" tabindex="<%= index + 7 %>">
-        <% }); %>   
-      </div>   
-</section>
-
 <form action="/SDG" method="post">
+    <section id="choosable-stakeholders">
+        <fieldset required>
+            <% stakeholdersData.forEach(item => { %>
+                <label>
+                    <input type="radio" name="chosenItem" value="<%= item.name %>">
+                    <%= item.name %>
+                </label>
+            <% }); %>
+        </fieldset>
+
+        <div class="container-stakeholders">
+            <% sdgsData.forEach((item, index) => { %>
+                <% const currentItem = sdgsData[index]; %>
+                <img src="https://fdnd-agency.directus.app/assets/<%= item.icon %>" class="static-image" alt="SDG <%= index + 1 %> <%= currentItem.description %>" tabindex="<%= index + 7 %>">
+            <% }); %>   
+        </div>   
+    </section>
+
     <button type="submit" class="stakeholder-btn">Naar de SDG's!&#8594;</button>
 </form>
+
 <%- include('./partials/foot') %>
