@@ -88,16 +88,9 @@ app.post('/dashboard', async (req, res) => {
     const response = await fetchJson(apiUrl);
     const data = response.data || [];
     
-    const scores = {};
-    for (const key in req.body) {
-        if (key.endsWith('_rating')) {
-            scores[key.split('_')[0]] = parseInt(req.body[key]);
-        }
-    }
-    console.log(scores);
     
     // Send scores to dashboard.ejs
-    res.render('dashboard', { data, scores });
+    res.render('dashboard', { data});
 });
 
 app.listen(app.get('port'), () => {
