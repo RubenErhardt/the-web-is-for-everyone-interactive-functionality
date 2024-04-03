@@ -142,7 +142,7 @@ h4{
 
 .login-container {
   background: linear-gradient(to bottom right, #343642, #19191e);
-  height: 800px;
+  height: 600px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: auto;
@@ -155,17 +155,17 @@ h4{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .login-text {
   padding: 35px;
-  width: 420px;
-  height: 730px;
+  width: 350px;
+  height: 530px;
   float: right;
   background-color: var(--form-bg-color); 
-  border-top-left-radius: 10px; 
-  border-bottom-left-radius: 10px; 
+  border-top-right-radius: 10px; 
+  border-bottom-right-radius: 10px; 
 }
 
 .login-container-text {
@@ -286,7 +286,7 @@ h1 {
 #choosable-stakeholders {
   position: relative; /* Add this line to make sure the button's absolute positioning is relative to this container */
   width: 95%;
-  max-width: 950px;
+  max-width: 850px;
   margin: 40px auto 0;
   padding: 20px;
   display: flex;
@@ -325,9 +325,9 @@ label {
 }
 
 .text-stakeholders{
-  max-width: 950px ;
+  max-width: 850px ;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .navbar {
@@ -429,7 +429,6 @@ input[type="radio"]:checked::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 950px;
   margin: 0 auto;
 }
 
@@ -438,11 +437,10 @@ input[type="radio"]:checked::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 #progress-bar-container {
-  max-width: 950px;
   width: 100%;
   height: 19px;
   background: var(--progress-bar-bg-color);
@@ -459,7 +457,7 @@ input[type="radio"]:checked::before {
 }
 
 #progress-bar.filled{
-  background: var(--progress-bar-fill-color);
+  background: var(--span-clr);
 }
 
 .button-container{
@@ -502,7 +500,7 @@ justify-content:space-between;
 }
 
 .important-heading{
-  margin-top: 70px;
+  margin-top: 60px;
   text-align: center;
 }
 
@@ -511,7 +509,7 @@ justify-content:space-between;
 }
 
 .clickable-image {
-  width: 104.5px;
+  width: 87.5px;
   height: auto;
   cursor: pointer;
   margin: 0.2em;
@@ -519,10 +517,10 @@ justify-content:space-between;
   border-radius: 5px;
 }
 
-.clickable-image.selected{
-  border: 2px solid green; /* Kies een contrasterende kleur */
-  opacity: 0.6;
+.clickable-image.selected {
+  box-shadow: 0 0 5px 3px rgba(0, 255, 0, 0.7); /* Groene gloed */
 }
+
 
 .static-image {
   width: 75px !important;
@@ -541,12 +539,15 @@ justify-content:space-between;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
+  max-width: 1000px;
 }
 
 .container-sdg-login {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 500px;
+  margin: auto;
 }
 
 
@@ -575,7 +576,6 @@ input[type="radio"] {
 
 /*footer*/
 .footer-main {
-  margin-top: 250px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -613,8 +613,8 @@ input[type="radio"] {
 }
 
 .vragenlijst {
-  margin-top: 100px;
-  max-width: 950px;
+  margin-top: 50px;
+  max-width: 850px;
   margin-left: auto; /* Automatische linkermarge */
   margin-right: auto; /* Automatische rechtermarge */
 }
@@ -729,4 +729,8 @@ input[type="radio"] {
 .work-in-progress{
   width: 400px;
   padding: 50px 50px 50px 50px;
+}
+
+.welcome-container{
+  margin: auto;
 }
