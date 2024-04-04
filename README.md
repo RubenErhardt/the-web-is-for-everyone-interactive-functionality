@@ -1,34 +1,43 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
+# the-web-is-for-everyone-interactive-functionality
+Welkom op mijn read.me van the-web-is-for-everyone-interactive-functionality. Ik moest voor opdrachtgever Handprint/Footprint een website maken, waarin verschillende bedrijven kunnen zien hoe goed ze bezig zijn met de SDG's. Dit moet gedisplayed worden in een dashboard.
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+## Projectoverzicht
+Live link naar de website: 
 
-## Inhoudsopgave
+## Overzicht
+Hier is een blik op wat je kunt verwachten van dit project:
 
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+### Verken Duurzame Ontwikkelingsdoelen (SDG's)
+De website biedt een interactieve verkenning van de SDG's, waarbij gebruikers afbeeldingen kunnen selecteren die overeenkomen met de doelen die ze willen ondersteunen.
 
-## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+### Selecteer SDG's die bij uw bedrijf passen
+Gebruikers kunnen klikbare afbeeldingen selecteren die overeenkomen met de SDG's die relevant zijn voor hun bedrijf. Door op de afbeeldingen te klikken, kunnen ze hun keuzes maken.
 
-## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+### Voortgangscontrole en Vragenlijst
+Na het selecteren van de SDG's, kunnen gebruikers doorgaan naar een vragenlijst. De voortgang wordt bijgehouden via een voortgangsbalk en gebruikers worden aangemoedigd om alle vijf de SDG's te selecteren voordat ze verder gaan.
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+### Informatie over Stakeholders en Dashboard
+De website biedt ook informatie over stakeholders en een dashboard waar gebruikers hun voortgang kunnen volgen en verdere acties kunnen ondernemen.
 
-## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+## Bouwtechnologieën: 
+EJS, CSS, JS NODE zijn ingezet om een solide basis te bieden voor mijn website.
+
+## Progressive enhancement
+Progressive enhancement is een webontwikkelingsbenadering waarbij je begint met het bouwen van een basisversie van je website die werkt zonder JavaScript of geavanceerde CSS. Vervolgens voeg je stapsgewijs geavanceerdere functies toe voor gebruikers met moderne browsers. Het doel is dat de website op allerlei verschillende browsers en apparaten ook werken aangezien er miljoenen gebruikers zijn op het web. 
+
+Dit heb ik toegepast door eerst goede routes te maken en daarbij goede HTML. Dit is mijn eerste 'laag'. Mijn 'tweede' laag is de styling met CSS. En als derde laag is de clientside javascript. Hier heb ik leuke interacties toegevoegd om de de website pleasurable te maken.
+
+## Installatie 
+- Kloon eerst de code. Klik op de groene knop "Code" en kies voor "Clone" of "Download ZIP".
+- Als je Node.js hebt geïnstalleerd, open je de terminal. Je vindt de terminalknop bovenaan of gebruik de sneltoets Ctrl + `.
+- Typ vervolgens npm start of npm run dev om de server te starten.
+- Dan zie je vervolgens localhost:8000
+- Als je de server wilt afsluiten, gebruik dan Ctrl + C in de terminal.
+
+## Desktop Preview
+![33ed2f2331491cd893708f96e94bcd47](https://github.com/RubenErhardt/the-web-is-for-everyone-interactive-functionality/assets/144007147/e5c71fc8-6b46-4206-a31f-421cf131fb8d)
+![dcabd762ec66accbfebe67b61ea3f937](https://github.com/RubenErhardt/the-web-is-for-everyone-interactive-functionality/assets/144007147/3123fdd8-7846-44be-951e-ce62718439e0)
+![451f6ee61a699a315eb2756697978825](https://github.com/RubenErhardt/the-web-is-for-everyone-interactive-functionality/assets/144007147/502fe513-ad4b-413e-983b-bb0af48737bb)
+![3f73d03d8e685b0aa660c251dba30d07](https://github.com/RubenErhardt/the-web-is-for-everyone-interactive-functionality/assets/144007147/c43a3945-cfa7-4f94-9735-c6e8de4e20f8)
 
 
-## Bronnen
-
-## Licentie
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
