@@ -2,7 +2,7 @@
 Welkom op mijn read.me van the-web-is-for-everyone-interactive-functionality. Ik moest voor opdrachtgever Handprint/Footprint een website maken, waarin verschillende bedrijven kunnen zien hoe goed ze bezig zijn met de SDG's. Dit moet gedisplayed worden in een dashboard.
 
 ## Projectoverzicht
-Live link naar de website: 
+Live link naar de website: https://handprint-footprint.onrender.com
 
 ## Overzicht
 Hier is een blik op wat je kunt verwachten van dit project:
