@@ -74,7 +74,9 @@ app.post('/ClickedImagesSDG', (req, res) => {
 // Render questionnaire page
 app.post('/vragenlijst', async (req, res) => {
     // Handle questionnaire form submission logic if needed
-    res.redirect('/'); // Redirect to the login page
+    const clickedImages = req.body.clickedImages || []; // If JavaScript is disabled, use the clickedImages from the form submission
+    req.session.clickedImages = clickedImages; // Store clickedImages in session
+    res.redirect('/vragenlijst'); // Redirect to the questionnaire page
 });
 
 // Handle questionnaire page GET request
