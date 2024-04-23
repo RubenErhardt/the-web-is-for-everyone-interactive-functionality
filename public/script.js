@@ -69,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+    // Voeg event listener toe aan de submit knop
+    submitButton.addEventListener("click", function(event) {
+      handleSubmit(event);
+    });
+
   // Voeg event listeners toe aan klikbare afbeeldingen
   images.forEach((image, index) => {
     image.addEventListener("click", function () {
@@ -92,10 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSubmitButtonState();
   });
 
-  // Voeg event listener toe aan de submit knop
-  submitButton.addEventListener("click", function(event) {
-    handleSubmit(event);
-  });
+
 
   // Functie voor soepel scrollen naar het tweede deel van de HTML
   function scrollToSDGPagina() {
